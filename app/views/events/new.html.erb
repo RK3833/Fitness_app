@@ -1,0 +1,65 @@
+<% now = Time.now %>
+
+<div class="page-header">
+	<h1><i class="fa fa-bullhorn" aria-hidden="true"></i>
+イベント作成
+	</h1>
+</div>
+
+<%= form_for(@event, class: 'form-horizontal', role: 'form') do |f| %>
+	<% if @event.errors.any? %>
+		<div class="alert alert-danger">
+			<ul>
+			<% @event.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>	
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="form-group">
+		<i class="fa fa-search-plus" aria-hidden="true">
+		<%= f.label :name %>
+		</i>
+		<%= f.text_field :name, class: 'form-control' %>	
+	</div>
+	<div class="form-group">
+		<i class="fa fa-info" aria-hidden="true">
+		<%= f.label :place %>
+		</i>
+		<%= f.text_field :place, class: 'form-control' %>	
+	</div>
+	<div class="form-group">
+		<% if @event.event_image? %>
+			<div class="thumbnail">
+				<%= image_tag @event.event_image.url %>
+			</div>
+		<% end %>
+		<%= f.file_field :event_image %>
+		<%= f.hidden_field :event_image_cache %>
+	</div>
+	<div class="form-group">
+		<i class="fa fa-clock-o" aria-hidden="true">
+		<%= f.label :start_time %>
+		</i>
+		<div>
+			<%= f.datetime_select :start_time, start_year: now.year, end_year: now.year + 1 %>
+		</div>
+	</div>
+	<div class="form-group">
+		<i class="fa fa-clock-o" aria-hidden="true">
+		<%= f.label :end_time %>
+		</i>
+		<div>
+			<%= f.datetime_select :end_time, start_year: now.year, end_year: now.year + 1 %>
+		</div>
+	</div>
+	<div class="form-group">
+		<i class="fa fa-star" aria-hidden="true">
+		<%= f.label :content %>
+		</i>
+		<%= f.text_area :content, class: 'form-control', row: 10  %>	
+	</div>
+
+	<%= f.submit '作成', class: 'btn btn-dafault', data: { disable_with: '作成中・・・'}%>
+<% end %>

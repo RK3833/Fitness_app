@@ -1,0 +1,22 @@
+<% if user_signed_in %>
+	<%if event.like_user(current_user.id) %>
+		<%= button_to event_like_path(like, event_id: event.id), method: :delete, id: "like-button", remote: true do %>
+			<%= img_tag("icon_red_heart.svg") %>
+			<span>
+				<%= event.like_count %>
+			</span>
+		<% end %>
+	<% else%>
+		<%= button_to event_like_path(like, event_id: event.id), id: "like-button", remote: true do %>
+			<%= img_tag("icon-heart.svg") %>
+			<span>
+				<%= event.like_count %>
+			</span>
+		<% end %>	
+	<% end %>
+<% else %>
+	<%= img_tag("icon-heart.svg") %>
+		<span>
+			<%= event.like_count %>
+		</span>
+<% end %>

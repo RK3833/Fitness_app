@@ -1,0 +1,68 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.top-wrapper {
+  width: 100%;	
+  padding: 180px 0 100px 0;
+  background-image: url(../assets/run-1749410_1920.jpg);
+  background-size: cover;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.top-container {
+  width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+
+}
+
+.top-wrapper h1 {
+  opacity: 0.7;
+  font-size: 45px;
+  letter-spacing: 5px;
+}
+
+.top-wrapper  {
+  opacity: 0.9;
+  margin-bottom: 15px;
+  position: fixed;            /* トップ画面の固定 */
+  top: 0px;                   /* 位置(上0px) */
+  left: 0px;
+  height:100%;
+
+  		.signup {
+				background-color: #239b76;
+				margin-top: 15px;
+				margin-bottom: 15px;
+				}
+
+		.facebook {
+				  background-color: #3b5998;
+				  margin-right: 10px;
+				}
+
+		.twitter {
+			 	 background-color: #55acee;
+				}
+
+		.btn {
+				 padding: 8px 24px;
+				 color: white;
+				 display: inline-block;
+				 opacity: 0.8;
+				 border-radius: 4px;
+			}
+
+			.btn:hover {
+			  opacity: 1;
+			}
+
+			.fa {
+			  margin-right: 5px;
+			}
+}
+
+
