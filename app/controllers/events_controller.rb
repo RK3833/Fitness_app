@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
- before_action :authenticate, except: :show
+ before_action :authenticate, except: :index
 
  	PER = 10
 
